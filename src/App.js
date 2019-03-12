@@ -1,28 +1,50 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Affichage from './components/Affichage';
+import Formulaire from './components/Formulaire';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+var App = () => {
+  const productsData = []
+
+  const [products, setProducts] = useState(productsData)
+  const [count, setCount] = useState(0)
+  const [ editing, setEditing ] = useState(false)
+
+  const addProduct = product => {
+	 	product.id = count
+		setProducts([ ...products, product ])
   }
+  
+  const deleteProduct = id => {
+    setProducts(products.filter(product => product.id !== id))
+  }
+
+  const editProduct = product => {
+    setEditing(true)
+    setProducts([ ...products, product ])
+  }
+
+  const updateProduct = (id, updatedProduct) => {
+    setEditing(false)
+  
+    setProducts(products.map(product => (product.id === id ? updatedProduct : product)))
+  }
+
+  return (
+    <div className="container">      
+      <div className="flex-row">
+        <div className="flex-large">
+          
+          <Formulaire addProduct={addProduct} setCount={setCount} count={count}/>
+        </div>
+        <div className="flex-large">
+          
+          <Affichage products={products} deleteProduct={deleteProduct} editProduct={editProduct} />
+        </div>
+      </div>
+    </div>
+  )
 }
 
-export default App;
+export default App
+
