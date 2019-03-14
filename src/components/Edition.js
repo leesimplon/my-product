@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react'
+import './Edition.css'
 
 
 const Edition = props => {
@@ -19,37 +20,21 @@ const Edition = props => {
 		setProduct({ ...product, [name]: value })
 	}
 
-	return (/*
-		confirmAlert({
-                                      
-			//title : 'Supression Produit',
-			message: <input type="text" name="prix" value={product.prix} onChange={handleInputChange} />,
-			buttons: [
-			  {
-				label: 'OK',
-				onClick: () => event => {
-					event.preventDefault()
-					props.updateProduct(product.id, product)
-				}
-			  },
-			  {
-				label: 'Annuler',
-				onClick: () => () => props.setEditing(false)
-			  }
-			]
-		  })*/
-		//confirmAlert({
-                                
-			//customUI: ({ onClose }) => {
-			  //return (
+	return (
 				<form
 					onSubmit={event => {
 						event.preventDefault()
-						props.updateProduct(product.id, product)
+						if (isNaN(product.prix)){
+							document.getElementById("erreur").innerHTML="Entrer un nombre"
+						}else{
+							props.updateProduct(product.id, product)
+						}	
+						
 					}}
 				>
 					
 					<input type="text" name="prix" value={product.prix} onChange={handleInputChange} />
+					<br/><span id="erreur"></span><br/>
 					<button>OK</button>
 					<button onClick={() => {props.setEditing(false);}} className="button muted-button">
 						Annuler

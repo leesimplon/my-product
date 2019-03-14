@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Affichage from './components/Affichage';
 import Formulaire from './components/Formulaire';
+import Somme from './components/Somme';
 import './App.css';
 import Edition from './components/Edition'
-import { confirmAlert } from 'react-confirm-alert'; // Import
+import { Alert } from 'reactstrap';
+//import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
-
 
 var App = () => {
   //ajout
@@ -42,21 +43,20 @@ var App = () => {
     <div className="container">      
       <div className="flex-row">
         <div className="flex-large"> 
-          {editing?(confirmAlert({
+          {editing?(
                                 
-                                customUI: ({ onClose }) => {
-                                  return (
+                                <Alert className="popedit" color="secondary">                      
             <Edition
             editing={editing}
             setEditing={setEditing}
             currentProduct={currentProduct}
             updateProduct={updateProduct}
           />
-            
-          )
+            </Alert>
+         /* )
           
-			}
-		  })
+			}*/
+		  
             
             ):(''
               
@@ -64,9 +64,9 @@ var App = () => {
           <Formulaire addProduct={addProduct} setCount={setCount} count={count}/>       
           
         </div>
-        <div className="flex-large">
-          
+        <div className="flex-large">          
           <Affichage products={products} deleteProduct={deleteProduct} editProduct={editProduct} />
+          <Somme products={products}/>
         </div>
       </div>
 

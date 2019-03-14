@@ -1,12 +1,11 @@
 import React from 'react';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import './Affichage.css'
 
 
-
-const Affichage = props => (
+const Affichage = props => (  
   
-
 	<table className="table table-striped table-bordered">
 		<thead className="thead-dark">
 			<tr>
@@ -21,11 +20,11 @@ const Affichage = props => (
                 
 				props.products.map(product => (
           
-					<tr key={product.id}>
-            <td>{product.id+1}</td>
-						<td>{product.nom.charAt(0).toUpperCase() + product.nom.substring(1).toLowerCase()}</td>
-						<td>{product.prix}</td>
-            <td> <center>
+					<tr key={product.id}>            
+            <td><p>{product.id+1}</p></td>
+						<td><p>{product.nom.charAt(0).toUpperCase() + product.nom.substring(1).toLowerCase()}</p></td>
+						<td className="price"><p>{product.prix}</p></td>                        
+            <td> 
 							<button  onClick={
                 
 
@@ -67,15 +66,17 @@ const Affichage = props => (
                               }) */
                 }
                 className="btn btn-success">Edit
-              </button>              
-            </center></td>						
+              </button></td>						
 					</tr>
+          
+          
                 ))
       ) : ''}
       
-		</tbody>
+		</tbody>    
 	</table>
-  
 )
+
+
 
 export default Affichage

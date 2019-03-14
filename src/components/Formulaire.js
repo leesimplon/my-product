@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './Formulaire.css'
 
 var Formulaire = props => {
 	const initialFormState = { id: null, nom: '', prix: '' }
@@ -12,6 +13,7 @@ var Formulaire = props => {
 	}
 
 	return (
+		<div className="container">
 		<form 
 			onSubmit={event => {
 				event.preventDefault()
@@ -26,25 +28,26 @@ var Formulaire = props => {
 						setProduct(initialFormState)
 					}				
 			}}
+			className="row"
 		>
-			<table  className="table">
-        <tr>
-          <td>
-            Produit&nbsp;
+			
+				
+					<div className="top col-md-4">
+						<label>Produit</label>
             <input type="text" name="nom" value={product.nom} onChange={handleInputChange} />
-          </td>
-          <td>
-            Prix&nbsp;
+					</div>
+					<div className="top col-md-4">
+					<label>Prix</label>
 			      <input type="text" name="prix" value={product.prix} onChange={handleInputChange} />
-						&nbsp;Ar<br/><span id="erreur"></span>
-          </td>
-          <td>
+						Ar<p id="erreur"></p>
+					</div>
+					<div className="col-md-4">
 						<button className="btn btn-primary">Ajouter</button>
-          </td>
-        </tr>				
-			</table>
+					</div>
+				        
 
 		</form>
+		</div>
 	)
 }
 
