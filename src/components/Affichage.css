@@ -1,3 +1,6 @@
+table{
+    margin-top: 20px;
+}
 thead{
     text-align: center;
 }
@@ -7,3 +10,4 @@ thead{
 p{
     margin-top: 15px;
 }
+

@@ -40,9 +40,6 @@ const Edition = props => {
 						Annuler
 					</button>
 				</form>
-			  //)
-			//}
-		 // })
 		
 	)
 }

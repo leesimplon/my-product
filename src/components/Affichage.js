@@ -21,10 +21,10 @@ const Affichage = props => (
 				props.products.map(product => (
           
 					<tr key={product.id}>            
-            <td><p>{product.id+1}</p></td>
-						<td><p>{product.nom.charAt(0).toUpperCase() + product.nom.substring(1).toLowerCase()}</p></td>
-						<td className="price"><p>{product.prix}</p></td>                        
-            <td> 
+            <td> {product.id+1}</td>
+						<td> {product.nom.charAt(0).toUpperCase() + product.nom.substring(1).toLowerCase()}</td>
+						<td className="price"> {product.prix}</td>                        
+            <td>
 							<button  onClick={
                 
 
@@ -46,24 +46,10 @@ const Affichage = props => (
                                     
                                 }
                                 className="btn btn-danger">X
-                            </button>&nbsp;            
+                            </button>            
               <button onClick={() => {
                       props.editProduct(product)
-                    }
-                /*
-                              () => confirmAlert({
-                                
-                                customUI: ({ onClose }) => {
-                                  return (
-                                    <div className='custom-ui'>
-                                      <p><input type="text" name="prix" value={product.prix}/></p>
-                                      <br/>
-                                      <button className="btn btn-sm btn-secondary" onClick={() => props.editProduct(product)}>OK</button>
-                                      <button className="btn btn-sm btn-secondary" onClick={onClose}>Annuler</button>                                      
-                                    </div>
-                                  )
-                                }
-                              }) */
+                    }                
                 }
                 className="btn btn-success">Edit
               </button></td>						
