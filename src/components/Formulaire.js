@@ -33,11 +33,11 @@ var Formulaire = props => {
 			
 				
 					<div className="top col-md-4">
-						<label>Produit</label>
+						Produit
             <input type="text" name="nom" value={product.nom} onChange={handleInputChange} />
 					</div>
 					<div className="top col-md-4">
-					<label>Prix</label>
+					Prix
 			      <input type="text" name="prix" value={product.prix} onChange={handleInputChange} />
 						Ar<p id="erreur"></p>
 					</div>

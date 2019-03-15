@@ -63,8 +63,7 @@ var App = () => {
           )}  
           <Formulaire addProduct={addProduct} setCount={setCount} count={count}/>       
           
-        </div>
-        <div className="flex-large">          
+                
           <Affichage products={products} deleteProduct={deleteProduct} editProduct={editProduct} />
           <Somme products={products}/>
         </div>

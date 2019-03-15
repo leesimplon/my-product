@@ -1,12 +1,13 @@
 import React from 'react';
 import './Somme.css'
-var adition = 0
+
 var Somme = props => {
     return(
         <form onSubmit={event => {
             event.preventDefault()
-            
+            var adition = 0
             props.products.map(
+                
                 product => (adition += parseInt(product.prix))
             )          
               
